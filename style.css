@@ -17,6 +17,8 @@ body {
 }
 
 /* HERO */
+/* ================= HERO FIX ================= */
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -26,12 +28,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
   text-align: center;
-  background-image: url("img/bgprewed.jpg");
+
+  background-image: url("img/BGAS.png");
+  background-repeat: no-repeat;
+
+  /* DESKTOP */
   background-size: cover;
-  background-position: center;
- }
+  background-position: center 35%; /* fokus agak ke atas */
+}
 
  .hero {
   filter: none;
@@ -39,7 +44,7 @@ body {
 
 .hero::before {
   background: rgba(0,0,0,.6);
-  backdrop-filter: grayscale(1);
+
 }
 
 
@@ -513,6 +518,19 @@ laptop*/
 @media (max-width: 768px) {
 
   .hero {
+    min-height: 100svh; /* tinggi layar asli HP */
+    
+    /* tetap full layar TANPA area kosong */
+    background-size: cover;
+
+    /* pindahkan fokus gambar */
+    background-position: center top;
+  }
+
+   
+
+
+  .hero {
     min-height: 100svh; /* lebih akurat di HP */
     padding: 60px 20px;
   }
@@ -526,29 +544,6 @@ laptop*/
     html {
         font-size: 65%;
     }
-
-     .timeline::before {
-    left: 30px;
-  }
-
-  .timeline-image {
-    left: 30px;
-    transform: none;
-    width: 80px;
-    height: 80px;
-  }
-
-  .timeline-panel {
-    width: calc(100% - 120px);
-    margin-left: 120px !important;
-  }
-
-  .timeline-panel::after {
-    left: -12px !important;
-    right: auto !important;
-    border-right: 12px solid #ddd !important;
-    border-left: none !important;
-  }
   
   .offcanvas {
     width: 50% !important;
@@ -576,23 +571,6 @@ laptop*/
     padding: 10px;
     min-width: 60px;
   }
-
-  .timeline::before {
-    left: 70px;
-  }
-
-.timeline li .timeline-panel {
-  max-width: calc(100vw - 100px);
-}
-
-
-  .timeline li .timeline-panel::before {
-    top: 30px;
-    }
-
-    .timeline li .timeline-panel::after {
-    top: 31px;
-    }
 }
 
 html {
@@ -682,4 +660,3 @@ body.offcanvas-open {
 .gallery img:hover {
   transform: scale(1.05);
 }
-
