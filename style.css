@@ -87,13 +87,13 @@ body {
 
 /* BUTTON */
 .hero a {
-    color: var(--pink);
+    color:#1f09e4;
     background-color: white;
     border: none;
 }
 
 .hero a:hover {
-    background-color: var(--pink);
+    background-color: #1f09e4;
     color: white;
 }
 
@@ -127,9 +127,41 @@ body {
 }
 
 .home {
-   background-image: url(img/Bgpatternflo.png);
+    background-image: url("img/BGNI.jpg");
+
+    /* inti perbaikan */
+    background-size: cover;        /* isi penuh section */
+    background-position: center;   /* tetap fokus tengah */
+    background-repeat: no-repeat;  /* tidak diulang */
+
+    /* supaya tinggi mengikuti isi */
+    background-attachment: scroll;
+
+    background-color: #ffffff;
+    color: #000000;
+
+    min-height: 100vh;
+    margin-top: -6rem;
+    padding-top: 15rem;
+    padding-bottom: 5rem;
 }
 
+
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.65);
+}
+
+.home {
+  position: relative;
+}
+
+.home > * {
+  position: relative;
+  z-index: 2;
+}
 
 
 
@@ -178,7 +210,7 @@ body {
 
 /* HOVER LINK */
 .mynavbar .nav-link:hover {
-    color: var(--pink) !important;
+    color:#08b32d !important;
 }
 
 
@@ -217,12 +249,18 @@ body {
 }
 
 .home h2, 
-.info h2, 
-.story h2,
 .gallery h2,
-.rsvp h2,
-.gifts h2{
-    color: var(--pink);
+.gifts h2 {
+    color:#555;
+    font-family: 'Sacramento';
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+
+.info h2, 
+.rsvp h2 {
+    color: #eeeeee;
     font-family: 'Sacramento';
     font-size: 5rem;
     font-weight: bold;
@@ -290,7 +328,7 @@ body {
 .home .couple h3 {
     
     font-size: 2.4rem;
-    color: var(--pink);
+    color:#000000;
 }
 
 
@@ -326,7 +364,6 @@ body {
 }
 
 
-.story, 
 .gallery,
 .rsvp,
 .gifts {
@@ -334,7 +371,6 @@ body {
     padding-bottom: 8rem;
 }
 
-.story span, 
 .gallery span,
 .gifts span {
     text-transform: uppercase;
@@ -345,95 +381,11 @@ body {
     margin-bottom: 1rem;
 }
 
-.story p, 
 .gallery p,
 .rsvp p,
 .gifts p{
     font-size: 1rem;
     font-weight: 300;
-}
-
-/* STORY TIMELINE FIX */
-
-.timeline {
-  position: relative;
-  padding: 2rem 0;
-  list-style: none;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: #eee;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.timeline li {
-  position: relative;
-  margin-bottom: 5rem;
-}
-
-.timeline-image {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  border: 6px solid #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,.15);
-  z-index: 2;
-}
-
-/* PANEL KIRI */
-.timeline-panel {
-  width: 40%;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  position: relative;
-}
-
-/* GANJIL KIRI */
-.timeline li:nth-child(odd) .timeline-panel {
-  margin-right: auto;
-  margin-left: 0;
-}
-
-/* GENAP KANAN */
-.timeline li:nth-child(even) .timeline-panel {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-/* PANAH */
-.timeline-panel::after {
-  content: '';
-  position: absolute;
-  top: 60px;
-  width: 0;
-  height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-}
-
-/* PANAH KIRI */
-.timeline li:nth-child(odd) .timeline-panel::after {
-  right: -12px;
-  border-left: 12px solid #ddd;
-}
-
-/* PANAH KANAN */
-.timeline li:nth-child(even) .timeline-panel::after {
-  left: -12px;
-  border-right: 12px solid #ddd;
 }
 
 
@@ -459,14 +411,14 @@ body {
 }
 
 .rsvp button {
-    background-color: var(--pink);
+    background-color: #c9a227;
     color: white;
-    border: 1px solid var(--pink);
+    border: 1px solid #c9a227;
 }
 
 .rsvp button:hover {
     background-color: white;
-    color: var(--pink);
+    color: #c9a227;
     border: 1px solid white;
 }
 
@@ -559,6 +511,18 @@ laptop*/
 
 /*Tablet*/
 @media (max-width: 768px) {
+
+  .hero {
+    min-height: 100svh; /* lebih akurat di HP */
+    padding: 60px 20px;
+  }
+
+  .hero::before {
+    background-size: contain; /* menyesuaikan layar */
+    background-position: top center;
+  }
+
+
     html {
         font-size: 65%;
     }
@@ -595,7 +559,8 @@ laptop*/
 
 /*mobile phone*/
 @media (max-width: 576px) {
-  .home .heart {
+
+   .home .heart {
     display: none;
   }
 
@@ -717,3 +682,4 @@ body.offcanvas-open {
 .gallery img:hover {
   transform: scale(1.05);
 }
+
